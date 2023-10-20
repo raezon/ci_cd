@@ -1,0 +1,23 @@
+- name: Push a php app to ecr
+  hosts: all
+  #become: yes  # This will run the tasks with sudo or root privileges
+  
+  tasks:
+    - name: stop running container if existant
+      command: docker stop application_container
+      ignore_errors: yes
+      
+    - name: remove stopped container
+      command: docker rm application_container
+      ignore_errors: yes
+
+    - name: remove docker images
+      command: docker rmi 280415466858.dkr.ecr.eu-central-1.amazonaws.com/docker_repository:latest docker_repository -f
+      ignore_errors: yes
+
+    - name: pull images from ecr
+      command: docker pull  280415466858.dkr.ecr.eu-central-1.amazonaws.com/docker_repository:latest
+
+    - name: docker run new container
+      command: docker run -d --name application_container -p 8080:8080  280415466858.dkr.ecr.eu-central-1.amazonaws.com/docker_repository:latest
+    

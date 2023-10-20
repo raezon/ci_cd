@@ -1,0 +1,18 @@
+- name: Push a php app to ecr
+  hosts: all
+  #become: yes  # This will run the tasks with sudo or root privileges
+  
+  tasks:
+    - name: remove docker image if exist
+      command: docker rmi docker_repository  docker_repository:latest 280415466858.dkr.ecr.eu-central-1.amazonaws.com/docker_repository -f
+      ignore_errors: yes
+      
+    - name: create docker image
+      command: docker build -t docker_repository .
+
+    - name: add tag to docker
+      command: docker tag docker_repository:latest 280415466858.dkr.ecr.eu-central-1.amazonaws.com/docker_repository:latest
+
+    - name: push docker image to ercr
+      command: docker push 280415466858.dkr.ecr.eu-central-1.amazonaws.com/docker_repository:latest
+    

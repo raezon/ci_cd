@@ -1,0 +1,32 @@
+eksctl
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Action": [
+				"sts:AssumeRole"
+			],
+			"Effect": "Allow",
+			"Resource": "arn:aws:iam::280415466858:role/eksClusterRole"
+		}
+	]
+}
+
+PermissionsEKS
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": [
+				"eks:DescribeNodegroup",
+				"eks:DescribeCluster",
+				"eks:ListClusters",
+				"eks:AccessKubernetesApi",
+				"ssm:GetParameters",
+				"eks:ListUpdates"
+			],
+			"Resource": "*"
+		}
+	]
+}

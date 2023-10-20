@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Footer</title>
+<style>
+  /* Responsive footer styles */
+.site-footer{
+		display:none;
+	}
+.footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #011627; /* Updated background color */
+}
+
+.footer > :first-child {
+    padding-right: 20px; /* Adjust the value as needed */
+}
+
+.logo {
+    flex: 1;
+    display: flex;
+    align-items: center; /* Center the logo vertically */
+    gap: 10px; /* Add space between logo and services */
+}
+
+.logo img {
+    max-width: 200px; /* Limit the logo width on mobile */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.services,
+.about-us {
+    flex: 1;
+    min-width: 150px;
+  /*  text-align: center;*/ /* Center subsection content */
+    margin: 0 auto 20px; /* Add margin below subsections */
+}
+
+.services h3,
+.about-us h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    color: white; /* Set text color to white */
+}
+
+.services ul li a,
+.about-us ul li a {
+    color: white; /* Set text color to white for subheadings */
+}
+	
+.services ul li a:hover,
+.about-us ul li a:hover {
+    color: #d94948; /* Set text color to white */
+}
+
+/* Responsive styles for phone screens */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column; /* Switch to vertical layout */
+    }
+    
+    .logo img {
+        max-width: 130px; /* Smaller logo on mobile */
+    }
+    
+    .logo {
+        align-self: center; /* Center logo in vertical layout */
+        margin-bottom: 20px; /* Add margin below logo */
+		padding-bottom:30px;
+    }
+/* Add this style to align the list items to the left */
+
+
+}
+
+/* Desktop alignment */
+@media (min-width: 769px) {
+    .logo {
+        align-items: flex-start; /* Align logo with titles on desktop */
+    }
+    .services, .about-us {
+        flex: 1;
+        min-width: 150px;
+        /* text-align: center; */
+        /* margin: 0px auto 20px; */
+        margin: 5px 45px;
+    }
+    .footer > :first-child {
+    padding-right: 0px; /* Adjust the value as needed */
+}
+.no-padding{
+    margin-bottom: 0;
+}
+}
+
+/* Copyright notice */
+.copyright {
+    width: 100%;
+    text-align: center;
+    font-size: 0.8rem;
+    color: white;
+    padding-top: 20px;
+}
+</style>
+</head>
+<body>
+  <div class="footer">
+      <div class="logo">
+          <!-- Logo content -->
+          <img decoding="async" loading="lazy" class="alignleft wp-image-675 size-medium" src="http://ayrime.com/wp-content/uploads/2023/08/ayrime-logo-e1691081002496-300x58.png" alt="" srcset="https://ayrime.com/wp-content/uploads/2023/08/ayrime-logo-e1691081002496-300x58.png 300w, https://ayrime.com/wp-content/uploads/2023/08/ayrime-logo-e1691081002496-1024x197.png 1024w, https://ayrime.com/wp-content/uploads/2023/08/ayrime-logo-e1691081002496-768x148.png 768w, https://ayrime.com/wp-content/uploads/2023/08/ayrime-logo-e1691081002496-1536x295.png 1536w, https://ayrime.com/wp-content/uploads/2023/08/ayrime-logo-e1691081002496.png 1920w" sizes="(max-width: 300px) 100vw, 300px">
+      </div>
+      <div class="services">
+          <h3>Our Services</h3>
+          <ul class="align-left">
+              <li><a href="https://ayrime.com/index.php/code-review/">Application security</a></li>
+              <li><a href=" https://ayrime.com/index.php/penetration-testing-services/">Penetration testing</a></li>
+              <li><a href="#">Security Advisory</a></li>
+              <!-- Add more services as needed -->
+          </ul>
+      </div>
+      <div class="about-us">
+          <h3>Company</h3>
+          <ul class="align-left">
+              <li><a href="https://ayrime.com/index.php/about/">About us</a></li>
+              <li><a href="https://ayrime.com/index.php/news/">News</a></li>
+              <li><a href="https://ayrime.com/index.php/contact/">Contact us</a></li>
+              <!-- Add more about us sections as needed -->
+          </ul>
+      </div>
+      <div class="copyright">
+          Copyright © 2023 AYRIME
+      </div>
+  </div>
+
+  <script>
+    // Responsive behavior for footer columns
+    function adjustFooterColumns() {
+        const services = document.querySelector('.services');
+        const aboutUs = document.querySelector('.about-us');
+
+        if (window.innerWidth <= 768) {
+            copyright.style.order = '4';
+            services.style.order = '3';
+            aboutUs.style.order = '2';
+        } else {
+            services.style.order = '3';
+            services.style.order = '';
+            copyright.style.order = '';
+        }
+    }
+
+    // Initial call and attach to window resize event
+    adjustFooterColumns();
+    window.addEventListener('resize', adjustFooterColumns);
+  </script>
+</body>
+</html>

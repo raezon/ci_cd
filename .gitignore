@@ -1,0 +1,54 @@
+# Terraform .terraform directory
+**/.terraform/*
+
+# Terraform tfstate files
+*.tfstate
+*.tfstate.backup
+
+# Crash log files
+crash.log
+
+# Exclude sensitive files containing credentials, private keys, and other secrets
+*.tfvars
+*.tfvars.json
+*.tfstate.*
+
+# Ignore override files as they are usually used to override resources in different environments
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
+
+# Local .terraform directories
+.terraform
+
+# Exclude .tfplan files as they can contain sensitive information
+*.tfplan
+
+# Ignore .terraform.lock.hcl file
+.terraform.lock.hcl
+
+# Ignore provider credentials file
+terraform.tfvars
+
+# Ignore .hcl file containing sensitive information
+*.hcl
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore JetBrains IDE files
+.idea/
+
+# Ignore editor backup files
+*~
+
+# Ignore log files
+*.log
